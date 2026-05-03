@@ -1,0 +1,29 @@
+ Frequency of elements->> HashMap<Integer, Integer> removeDuplicates = new HashMap<>();
+      for(int i=0;i<=n-1;i++) {
+          removeDuplicates.put(arr[i], removeDuplicates.getOrDefault(arr[i], 0)+1);
+      }
+
+
+
+       for (int i = 0; i < n; i++) {
+                      for (int j = i + 1; j < n; j++) {
+                          if ((arr[i] == arr[j]) && (i + 1) < (i + 2)) {
+                              return i + 1;
+                             }
+                       }
+                      }
+                  return -1;
+
+                   int j =0;
+                          for (int i = 0; i < n; i++) {
+                              j=i+1;
+                              while((i<j) && (j<n)) {
+                                  if ((arr[i] == arr[j]) && (i + 1) < (i + 2)) {
+                                      System.out.println(i + 1);
+                                      return i + 1;
+                                  }
+                                  j++;
+                              }
+                          }
+                          return -1;
+                          }

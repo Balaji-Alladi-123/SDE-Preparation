@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Coding SDE Preparation.iml" filepath="$PROJECT_DIR$/Coding SDE Preparation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OOPS Practise/DesignPatterns/DesignPatterns.iml" filepath="$PROJECT_DIR$/OOPS Practise/DesignPatterns/DesignPatterns.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OOPS Practise/InheritanceDemo/InheritanceDemo.iml" filepath="$PROJECT_DIR$/OOPS Practise/InheritanceDemo/InheritanceDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/System Design-LLD/Questions/Questions.iml" filepath="$PROJECT_DIR$/System Design-LLD/Questions/Questions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/System Design-LLD/System Design-LLD.iml" filepath="$PROJECT_DIR$/System Design-LLD/System Design-LLD.iml" />
+    </modules>
+  </component>
+</project>
