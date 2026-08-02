@@ -6,8 +6,10 @@ public class BinarySearch {
         int[][] arr = {{1,3,5,7},{10,11,16,20},{23,30,34,60}};
         int[] a = {2, 3, 6, 7, 9},b = {1,4, 8, 10};
         int target = 3;
-        kthElement(a,b,5);
+        //kthElement(a,b,5);
 //        searchMatrix(arr,target);
+        int[] nums = {2,3,4};
+        twoSum(nums,6);
     }
     static int search(int[] arr,int target, int s, int e) {
         int m = s+(e-s)/2;
@@ -57,6 +59,34 @@ public class BinarySearch {
         Arrays.sort(arr);
 
         return arr[k-1];
+    }
+
+    public static int[] twoSum(int[] nums, int target) {
+        int n = nums.length;
+        for(int i=0;i<n;i++) {
+            int sum = target-nums[i];
+            int index = binarySearch(i,n-1,nums,sum);
+            if(index!=-1) {
+                return new int[]{i+1,index+1};
+            }
+        }
+        return new int[]{-1,-1};
+
+    }
+
+    public static int binarySearch(int start, int end, int[] arr, int target) {
+
+        while(start<end) {
+            int mid = end-(start+end)/2;
+            if(arr[mid] == target) {
+                return mid;
+            } else if(arr[mid]> target) {
+                end = mid-1;
+            } else {
+                start = mid+1;
+            }
+        }
+        return -1;
     }
 }
 

@@ -10,8 +10,9 @@ public class Solutions {
 //        threeSum(n);'
         //lexSmallest("abba");
         //maxProduct(n);
-        int[] nums= {5,5,5,2,5};
-        isPalindrome("A man, a plan, a canal: Panama");
+        int[] nums= {1,100,1};
+        countValidSubarrays(nums,1);
+//        isPalindrome("A man, a plan, a canal: Panama");
     }
 
     public static int fibonnaci(int n) {
@@ -96,5 +97,48 @@ public class Solutions {
             }
 
         return palindrome(s,l+1,r-1);
+    }
+
+    public static int[] sortedSquares(int[] nums) {
+        int n = nums.length;
+        int l = 0, r = n - 1;
+        while (l != r) {
+            int lSquare = nums[l] * nums[l];
+            int rSquare = nums[r] * nums[r];
+            if (lSquare > rSquare) {
+                int temp = nums[r];
+                nums[r] = nums[l];
+                nums[l] = temp;
+            } else {
+                nums[r] = rSquare;
+                nums[l] = lSquare;
+            }
+            r--;
+        }
+        return nums;
+    }
+
+    public static int countValidSubarrays(int[] nums, int x) {
+        int n = nums.length;
+        long sum =0;
+        int count = 0;
+        for(int i=0;i<n;i++) {
+            sum+=nums[i];
+            count+= getmatch(sum,x);
+            for(int j=i+1;j<n;j++) {
+                sum+=nums[j];
+                count+= getmatch(sum,x);
+            }
+        }
+        return count;
+    }
+
+    public static int getmatch(long num, int x) {
+        String s = String.valueOf(num);
+        System.out.println( s.charAt(0));
+        if(s.charAt(0) == x && s.charAt(s.length()-1) == x) {
+            return 1;
+        } 
+        return 0;
     }
 }

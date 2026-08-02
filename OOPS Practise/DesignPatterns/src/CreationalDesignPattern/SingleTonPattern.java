@@ -6,7 +6,7 @@ class DataBaseManager {
 
     private DataBaseManager() {
         this.connection = "http/localhost:3000:MyDB-postgres";
-        System.out.println("my connections" + connection);
+        System.out.println(STR."my connections\{connection}");
     }
 
     // Step 3: Public static method to get the instance (lazy + thread-safe with sync block)
@@ -22,7 +22,7 @@ class DataBaseManager {
     }
 
     public void connect() {
-        System.out.println("Connecting to database with: " + connection);
+        System.out.println(STR."Connecting to database with: \{connection}");
     }
 
     public void disconnect() {

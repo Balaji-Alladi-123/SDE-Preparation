@@ -62,9 +62,8 @@ public class Primes {
 
     public static void checkPrime() {
         List<Integer> nums = Arrays.asList(4, 3, 23, 45, 89, 22, 67, 100, 45);
-        boolean isPrime = nums.stream()
-                .anyMatch(this::getPrime);
-        System.out.println("List contains a prime number: " + isPrime);
+//        boolean isPrime = nums.stream().anyMatch(this::getPrime);
+       // System.out.println("List contains a prime number: " + isPrime);
     }
 
     public static boolean getPrime(int number) {

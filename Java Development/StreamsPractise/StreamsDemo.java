@@ -1,9 +1,8 @@
 package StreamsPractise;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.sql.SQLOutput;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @FunctionalInterface
@@ -26,7 +25,58 @@ public class StreamsDemo {
 //            });
 //        };
 //        evenProgram.printNums(map);
-        intermediateOp();
+        //intermediateOp();
+
+//        List<String> strList = new ArrayList<>(
+//                List.of("bala", "hari", "ravi", "bala")
+//        );
+//
+//        Map<String, Long> frequencyMap = strList.stream()
+//                .collect(Collectors.groupingBy(
+//                        Function.identity(),
+//                        Collectors.counting()
+//                ));
+
+//        frequencyMap.forEach((key,val) ->
+//                System.out.println(key + " "+ val));
+//        List<String> result = frequencyMap.entrySet().stream()
+//                .filter(entry -> entry.getValue() == 1)
+//                .map(Map.Entry::getKey)
+//                .toList();
+//            System.out.println(result);
+
+//        List<Integer> list = Arrays.asList(1,2,3,4,5,6);
+//        int[] nums = {12,3,4,5};
+//        IntSummaryStatistics s = list.stream().mapToInt(Integer:: intValue).summaryStatistics();
+//        System.out.println(s);
+        fistRepeatingCharacter("Programming");
+        fistNonRepeatingCharacter("Java articles are Awesome");
+    }
+
+    private static void fistRepeatingCharacter(String s) {
+        Map<Character, Long> map  = s.chars().mapToObj(c-> (char) c)
+                .collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new, Collectors.counting()));
+
+        char c = map.entrySet()
+                .stream()
+                .filter(e -> e.getValue()>1)
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElse(null);
+        System.out.println("First Repeating character:" +c);
+    }
+
+    private static void fistNonRepeatingCharacter(String s) {
+        Map<Character, Long> map  = s.chars().mapToObj(c-> (char) c)
+                .collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new, Collectors.counting()));
+
+        char c = map.entrySet()
+                .stream()
+                .filter(e -> e.getValue()==1)
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElse(null);
+        System.out.println("First Non Repeating character:" +c);
     }
 
     public static void intermediateOp() {
@@ -63,6 +113,4 @@ public class StreamsDemo {
 
         System.out.println(resMap);
     }
-
-
 }

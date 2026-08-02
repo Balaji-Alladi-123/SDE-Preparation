@@ -256,29 +256,29 @@ public class QuestionsDemo {
         employees.add(new Employee(1, "Zunaid", "QA", 27,55,"Kolkata"));
 
         //sort based on name and department
-//        List<Employee> result = employees.stream().sorted(Comparator.comparing(Employee::getName)
-//                .thenComparing(Employee::getDepartment)
-//        ).collect(Collectors.toList());
-//
-//        List<String> getNames  = employees.stream()
-//                        .filter(e -> e.department.equals("Software"))
-//                                .map(Employee:: getName)
-//                                        .distinct().collect(Collectors.toList());
-//        //Increase salary by 10% for employees under 35, then collect to new list.
-//        List<Employee> resList = employees
-//                .stream()
-//                        .filter(e-> e.age <60)
-//                                .map(e -> {
-//                                    e.setSalary((long)(e.getSalary()+ e.getSalary() * 0.20));
-//                                    return e;
-//                                }
-//                                )
-//                .collect(Collectors.toList());
-//
-//        List<Employee> skip = employees.stream()
-//                        .skip(2)
-//                                .collect(Collectors.toList());
-//        skip.forEach(System.out::println);
+        List<Employee> result = employees.stream().sorted(Comparator.comparing(Employee::getName)
+                .thenComparing(Employee::getDepartment)
+        ).collect(Collectors.toList());
+
+        List<String> getNames  = employees.stream()
+                        .filter(e -> e.department.equals("Software"))
+                                .map(Employee:: getName)
+                                        .distinct().collect(Collectors.toList());
+        //Increase salary by 10% for employees under 35, then collect to new list.
+        List<Employee> resList = employees
+                .stream()
+                        .filter(e-> e.age <60)
+                                .map(e -> {
+                                    e.setSalary((long)(e.getSalary()+ e.getSalary() * 0.20));
+                                    return e;
+                                }
+                                )
+                .collect(Collectors.toList());
+
+        List<Employee> skip = employees.stream()
+                        .skip(2)
+                                .collect(Collectors.toList());
+        skip.forEach(System.out::println);
 
         // How do you group employees by city and get the list of employees for each city
         Map<String, List<String>> groupEmp = employees.stream()
@@ -339,6 +339,7 @@ public class QuestionsDemo {
                                 opt ->opt.orElse(null)
                         )
                 ));
+
     }
 
 }

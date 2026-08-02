@@ -31,7 +31,7 @@ public class Heap<T extends Comparable<T>> {
         list.add(value);
         upHeap(list.size() - 1);
     }
-
+  // Up Heap = Used after insertion
     private void upHeap(int index) {
         if (index == 0) {
             return;
@@ -55,7 +55,7 @@ public class Heap<T extends Comparable<T>> {
         }
         return temp;
     }
-
+    //Down Heap = Used after deleting the root.
     private void downHeap(int index) {
         int min = index;
         int left = left(index);
