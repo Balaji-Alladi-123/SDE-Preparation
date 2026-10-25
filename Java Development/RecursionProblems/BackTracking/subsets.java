@@ -7,8 +7,9 @@ import java.util.List;
 
 public class subsets {
     public static void main(String[] args) {
-        int[] nums = {1,2,3,1};
-        rob(nums);
+        int[] nums = {1,2,3};
+       // rob(nums);
+        System.out.println(RecursionSubSets(nums));
     }
 
     public static List<List<Integer>> subSetsArray(int[] nums) {
@@ -74,7 +75,7 @@ public class subsets {
 
     static public List<List<Integer>> RecursionSubSets(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
-        Arrays.sort(nums);
+        //Arrays.sort(nums);
         backtrack(nums, 0, new ArrayList<>(), result);
         System.out.println(result);
         return result;
@@ -85,7 +86,6 @@ public class subsets {
         for (int i = start; i < nums.length; i++) {
             path.add(nums[i]);
             backtrack(nums, i + 1, path, result);
-            
             path.remove(path.size() - 1);
         }
     }

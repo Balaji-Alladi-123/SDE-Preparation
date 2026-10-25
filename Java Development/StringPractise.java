@@ -9,7 +9,7 @@ public class StringPractise {
     public void main() {
        User user = new User("name");
 
-        ExecutorService service = Executors.newVirtualThreadPerTaskExecutor();
+        //ExecutorService service = Executors.newVirtualThreadPerTaskExecutor();
     }
 }
 

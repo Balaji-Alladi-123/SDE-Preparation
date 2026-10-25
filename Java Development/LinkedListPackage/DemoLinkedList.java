@@ -169,13 +169,28 @@ public class DemoLinkedList {
     }
 
   static public Node reverseLL(Node head) {
+      if(head == null || head.next == null) {
+          return head;
+      }
         Node curr = head, pointer = null;
         while(curr!=null) {
+            Node next = curr.next;
+            curr.next = pointer;
             pointer = curr;
-            curr =curr.next;
+            curr =next;
         }
         return pointer;
  }
+
+    static public Node reverseLLByRecursion(Node head) {
+        if(head == null || head.next == null) {
+            return head;
+        }
+        Node newHead = reverseLLByRecursion(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
+    }
 
     static Node rotateRight(Node head, int k) {
         Node tail = head;
@@ -300,8 +315,8 @@ public class DemoLinkedList {
        // modifiedList(a,head);
         //printList(removeKthElement(head,3));
        //printList(insertKthElement(head,4,90));
-       // printList()
-        System.out.println(isPalindrome(head));
+       printList(reverseLLByRecursion(head));
+        //System.out.println(reverseLL(head));
 //        Node head = convertArrayToLinkedList(a);
 //        Node head2 = convertArrayToLinkedList(a2);
 //        Node node = insertKthElement(head, 6, 567);

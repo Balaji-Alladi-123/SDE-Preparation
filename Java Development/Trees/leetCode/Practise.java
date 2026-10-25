@@ -27,15 +27,16 @@ public class Practise {
     }
 
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(3);
-        root.left = new TreeNode(1);
-        root.right = new TreeNode(4);
-
-      //  root.left.left = new TreeNode(4);
-        root.left.right = new TreeNode(2);
-//
-         //root.right.left = new TreeNode(6);
-//
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right.right = new TreeNode(8);
+        root.left.right.left = new TreeNode(6);
+        root.left.right.right = new TreeNode(7);
+        root.right.right.left = new TreeNode(9);
+        inOrder(root, new ArrayList<>());
 //        root.left.right.left = new TreeNode(6);
 //        root.left.right.right = new TreeNode(7);
 //
@@ -65,12 +66,12 @@ public class Practise {
 //        return list.get(k - 1);
 //    }
 //
-//    public static void inOrder(TreeNode root, List<Integer> list) {
-//        if (root == null) return;
-//        inOrder(root.left, list);
-//        list.add(root.val);
-//        inOrder(root.right, list);
-//    }
+    public static void inOrder(TreeNode root, List<Integer> list) {
+        if (root == null) return;
+        inOrder(root.left, list);
+        list.add(root.val);
+        inOrder(root.right, list);
+    }
     public static TreeNode bstFromPreorder(int[] preorder) {
         TreeNode root = null;
         for (int a : preorder) {

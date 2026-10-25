@@ -2,8 +2,9 @@ package leetcodePractiseQuestions;
 
 public class Leetcode28 {
     public static void main(String[] args) {
-        int[] nums = {73,32,54};
-        maximumScore(nums);
+        int[] nums = {1,2,3,4,5,6};
+        //maximumScore(nums);
+        countGoodRotations(nums);
     }
 
     public static long maximumScore(int[] nums) {
@@ -26,5 +27,35 @@ public class Leetcode28 {
             max = Math.max(max, prefix[j] - min);
         }
         return max;
+    }
+
+    public static int countGoodRotations(int[] nums) {
+        int n = nums.length, count = 0;
+        long first = 0, second = 0;
+        for (int i = 0; i < n / 2; i++) {
+            first += nums[i];
+        }
+        for (int j = n / 2; j < n; j++) {
+            second += nums[j];
+        }
+
+        if (first > second) {
+            count++;
+        }
+
+        int l = 0, h = 1;
+        while (l < n && h < n) {
+            first -= nums[l];
+            first += nums[h];
+            second -= nums[h];
+            second += nums[l];
+            System.out.print(first);
+            if (first > second) {
+                count++;
+            }
+            l++;
+            h++;
+        }
+        return count;
     }
 }
