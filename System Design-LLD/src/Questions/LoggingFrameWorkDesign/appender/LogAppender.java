@@ -1,6 +1,6 @@
 package Questions.LoggingFrameWorkDesign.appender;
 
-import Questions.LoggingFrameWorkDesign.model.LogMessage;
+import Questions.LoggingFrameWorkDesign.core.LogMessage;
 
 public interface LogAppender {
     void append(LogMessage logMessage);

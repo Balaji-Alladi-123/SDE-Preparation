@@ -1,5 +1,26 @@
 package Questions.DigitalWallet;
 
+import Questions.DigitalWallet.Repository.TransactionRepository;
+import Questions.DigitalWallet.Repository.UserRepository;
+import Questions.DigitalWallet.Repository.WalletRepository;
+import Questions.DigitalWallet.Repository.impl.TransactionRepoImpl;
+import Questions.DigitalWallet.Repository.impl.UserRepoImpl;
+import Questions.DigitalWallet.Repository.impl.WalletRepoImpl;
+import Questions.DigitalWallet.controller.AdminController;
+import Questions.DigitalWallet.controller.TransactionController;
+import Questions.DigitalWallet.controller.WalletController;
+import Questions.DigitalWallet.domain.Transaction;
+import Questions.DigitalWallet.domain.TransactionStatus;
+import Questions.DigitalWallet.domain.User;
+import Questions.DigitalWallet.service.LockService;
+import Questions.DigitalWallet.service.TransactionService;
+import Questions.DigitalWallet.service.WalletService;
+import Questions.DigitalWallet.service.gateway.MockPaymentGatewayProvider;
+import Questions.DigitalWallet.service.gateway.PaymentGatewayRouter;
+import Questions.DigitalWallet.service.notification.EmailNotificationChannel;
+import Questions.DigitalWallet.service.notification.NotificationRouter;
+import Questions.DigitalWallet.service.notification.SmsNotificationChannel;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -8,9 +29,9 @@ public class PaymentWalletDemo {
             System.out.println("=== DIGITAL WALLET SYSTEM SIMULATION ===\n");
 
             // Initialize repositories
-            UserRepository userRepository = new UserRepositoryImpl();
-            WalletRepository walletRepository = new WalletRepositoryImpl();
-            TransactionRepository transactionRepository = new TransactionRepositoryImpl();
+            UserRepository userRepository = new UserRepoImpl();
+            WalletRepository walletRepository = new WalletRepoImpl();
+            TransactionRepository transactionRepository = new TransactionRepoImpl();
 
             // Initialize infrastructure services
             LockService lockService = new LockService(); // TODO: Replace with Redis-based distributed lock
@@ -83,6 +104,3 @@ public class PaymentWalletDemo {
             System.out.println("\n=== SIMULATION COMPLETED ===");
         }
     }
-
-
-}
