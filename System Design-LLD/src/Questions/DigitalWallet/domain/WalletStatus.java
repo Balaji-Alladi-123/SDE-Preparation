@@ -1,0 +1,9 @@
+package Questions.DigitalWallet.domain;
+
+public enum WalletStatus {
+    ACTIVE,
+    SUSPENDED,
+    CLOSED
+}
+
+
